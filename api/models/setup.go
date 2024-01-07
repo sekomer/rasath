@@ -4,17 +4,10 @@ import "gorm.io/gorm"
 
 func Setup(db *gorm.DB) {
 	db.Migrator().DropTable(
-		&User{},
-	)
-	db.AutoMigrate(
-		&User{},
+		&Earthquake{},
 	)
 
-	user := []User{
-		{
-			Username: "Jan",
-			Password: "Password",
-		},
-	}
-	db.Create(&user)
+	db.AutoMigrate(
+		&Earthquake{},
+	)
 }
